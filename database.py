@@ -38,7 +38,7 @@ def search(query):
     result = c.execute('''select filename, path, filetype, 
                                 case when content like ? then 1 else 0 end as content_match
                         from files where filename like ? or content like ?
-                        order by content_match desc, filename ASC limit 100''',(like,like,like)).fetchall
+                        order by content_match desc, filename ASC limit 100''',(like,like,like)).fetchall()
     c.close()
     return [dict(r) for r in result]
 
@@ -48,3 +48,4 @@ def get_total():
     c.close()
 
     return count
+
