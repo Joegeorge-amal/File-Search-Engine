@@ -17,8 +17,8 @@ def create():
 def insert(c, filename, path, filetype, content):
     try:
         c.execute("insert or ignore into files(filename, path, filetype, content) values (?, ?, ?, ?)",(filename, path, filetype, content))
-    except Exception as E:
-        print(f"Error Inserting {path}: {E}")
+    except Exception as e:
+        print(f"Error Inserting {path}: {e}")
 
 def update(path, content):
     c = connection()
@@ -46,4 +46,5 @@ def get_total():
     c = connection()
     count = c.execute("select count(*) from files").fetchone()[0]
     c.close()
+
     return count
