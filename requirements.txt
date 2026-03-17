@@ -1,0 +1,4 @@
+flask
+watchdog
+pypdf
+python-docx
